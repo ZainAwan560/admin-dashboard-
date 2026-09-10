@@ -1,0 +1,44 @@
+.table-scroll{
+  overflow:auto;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  text-align:left;
+  padding:13px 16px;
+  border-top:1px solid #edf0f5;
+  white-space:nowrap;
+}
+th{
+  background:#fafbfc;
+  color:#8993a5;
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.45px;
+}
+td{
+  font-size:11px;
+  color:#687387;
+}
+td strong{
+  display:block;
+  color:#30394c;
+  font-weight:600;
+}
+td small{
+  display:block;
+  color:#9aa3b5;
+  margin-top:3px;
+  font-size:9px;
+}
+.money{
+  color:#30394c;
+  font-weight:600;
+}
+.id-cell{
+  color:#7040df;
+  font-weight:600;
+}

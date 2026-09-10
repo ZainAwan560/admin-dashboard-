@@ -1,0 +1,11 @@
+.table-toolbar{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  padding:15px 18px;
+  border-bottom:1px solid #edf0f5;
+}
+.table-toolbar .search-input{
+  width:min(380px,100%);
+}

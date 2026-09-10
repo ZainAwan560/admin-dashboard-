@@ -1,0 +1,15 @@
+.chart-card__head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:18px 20px 9px;
+}
+.chart-card__head h2{
+  font-size:14px;
+  color:#30394c;
+  margin-bottom:4px;
+}
+.chart-card__head p{
+  font-size:11px;
+  color:#9099aa;
+}

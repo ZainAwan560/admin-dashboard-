@@ -1,0 +1,16 @@
+.customer-cell{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.customer-cell strong{
+  display:block;
+  color:#30394c;
+  font-size:11px;
+}
+.customer-cell small{
+  display:block;
+  color:#9aa3b5;
+  margin-top:3px;
+  font-size:9px;
+}

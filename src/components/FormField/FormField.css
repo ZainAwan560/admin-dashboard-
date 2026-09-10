@@ -1,0 +1,23 @@
+.form-field{
+  display:block;
+  color:#7d8799;
+  font-size:10px;
+}
+.form-field input,.form-field select,.form-field textarea{
+  display:block;
+  width:100%;
+  margin-top:6px;
+  padding:10px;
+  border:1px solid #dfe4ec;
+  border-radius:8px;
+  background:#fafbfc;
+  color:#30394c;
+  outline:0;
+  font:inherit;
+}
+.form-field textarea{
+  resize:vertical;
+}
+.form-field--full{
+  grid-column:1/-1;
+}

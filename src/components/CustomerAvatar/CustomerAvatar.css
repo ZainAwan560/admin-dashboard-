@@ -1,0 +1,12 @@
+.customer-avatar{
+  width:29px;
+  height:29px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  flex:none;
+  background:#eee9ff;
+  color:#7040df;
+  font-size:9px;
+  font-weight:700;
+}

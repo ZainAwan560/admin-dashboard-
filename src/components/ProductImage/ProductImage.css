@@ -1,0 +1,11 @@
+.product-image {
+  width: 118px;
+  height: 118px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}

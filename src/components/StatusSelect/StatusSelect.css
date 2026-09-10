@@ -1,0 +1,23 @@
+.status-select{
+  border-radius:18px;
+  padding:5px 24px 5px 9px;
+  background:#fff;
+  border:1px solid #dfe4ec;
+  font-size:10px;
+  outline:0;
+}
+.status-select--pending{
+  color:#d79416;
+}
+.status-select--processing{
+  color:#7040df;
+}
+.status-select--dispatched{
+  color:#2787db;
+}
+.status-select--delivered{
+  color:#0fa77a;
+}
+.status-select--cancelled{
+  color:#e24d61;
+}

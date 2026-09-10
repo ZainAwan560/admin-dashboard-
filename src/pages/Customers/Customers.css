@@ -1,0 +1,38 @@
+.customers__stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:17px;
+}
+.customers__stats>div{
+  background:#fff;
+  border:1px solid #e5e8ef;
+  border-radius:11px;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  box-shadow:0 4px 15px rgba(35,42,60,.035);
+}
+.customers__stats svg{
+  width:35px;
+  height:35px;
+  padding:8px;
+  border-radius:9px;
+  background:#f0ebff;
+  color:#7040df;
+}
+.customers__stats b{
+  font-size:20px;
+  color:#30394c;
+}
+.customers__stats span{
+  font-size:10px;
+  color:#929bad;
+  margin-left:-4px;
+}
+@media(max-width:650px){
+  .customers__stats{
+  grid-template-columns:1fr;
+}
+}

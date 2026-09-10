@@ -1,0 +1,37 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  background: #f4f6fb;
+  color: #263238;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.main {
+  min-width: 0;
+  flex: 1;
+}
+
+.content {
+  padding: 27px;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    border: 0;
+    background: rgba(20, 25, 40, 0.25);
+  }
+
+  .content {
+    padding: 20px 16px;
+  }
+}

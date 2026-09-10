@@ -1,0 +1,58 @@
+.dashboard__stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:17px;
+}
+.dashboard__charts{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:17px;
+  margin-bottom:17px;
+}
+.dashboard__chart{
+  height:292px;
+  padding:4px 16px 13px;
+}
+.dashboard__mini-number{
+  font-size:25px;
+  font-weight:700;
+  color:#30394c;
+  padding:7px 20px 0;
+}
+.dashboard__mini-number span{
+  font-size:10px;
+  color:#919aab;
+  font-weight:400;
+}
+.dashboard__mini{
+  height:255px;
+  padding:13px;
+}
+.dashboard__recent-head{
+  padding:18px 20px 11px;
+  display:flex;
+  justify-content:space-between;
+}
+.dashboard__recent-head h2{
+  font-size:14px;
+  color:#30394c;
+  margin-bottom:4px;
+}
+.dashboard__recent-head p{
+  font-size:11px;
+  color:#9099aa;
+}
+@media(max-width:1050px){
+  .dashboard__stats{
+  grid-template-columns:repeat(2,1fr);
+}
+.dashboard__charts{
+  grid-template-columns:1fr;
+}
+}
+@media(max-width:650px){
+  .dashboard__stats{
+  grid-template-columns:1fr;
+}
+}

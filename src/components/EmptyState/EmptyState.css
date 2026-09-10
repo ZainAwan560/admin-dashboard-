@@ -1,0 +1,16 @@
+.empty-state{
+  text-align:center;
+  padding:55px 20px;
+  color:#a0a8b7;
+}
+.empty-state svg{
+  width:34px;
+}
+.empty-state h3{
+  color:#394256;
+  margin:10px 0 4px;
+  font-size:14px;
+}
+.empty-state p{
+  font-size:11px;
+}

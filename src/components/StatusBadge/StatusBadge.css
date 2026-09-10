@@ -1,0 +1,27 @@
+.status-badge{
+  display:inline-flex;
+  border-radius:20px;
+  padding:5px 9px;
+  font-size:10px;
+  font-weight:600;
+}
+.status-badge--pending{
+  background:#fff5dc;
+  color:#d79416;
+}
+.status-badge--delivered,.status-badge--active{
+  background:#e7faf4;
+  color:#0fa77a;
+}
+.status-badge--dispatched{
+  background:#e9f5ff;
+  color:#2787db;
+}
+.status-badge--cancelled{
+  background:#fff0f2;
+  color:#e24d61;
+}
+.status-badge--processing{
+  background:#f0ebff;
+  color:#7040df;
+}

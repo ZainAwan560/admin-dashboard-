@@ -1,0 +1,60 @@
+.topbar {
+  height: 74px;
+  background: #fff;
+  border-bottom: 1px solid #e7eaf2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+}
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar__admin {
+  font-size: 12px;
+  color: #626d80;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed, #5b7cfa);
+}
+
+.notification {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7c3aed;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .mobile-menu {
+    display: grid;
+  }
+
+  .topbar .search-input {
+    width: min(360px, 48vw);
+  }
+}
