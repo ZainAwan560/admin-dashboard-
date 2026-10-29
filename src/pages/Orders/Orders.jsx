@@ -23,7 +23,9 @@ export default function Orders() {
     const fetchOrders = async () => {
       try {
         const response = await fetch(`${API_BASE_URL}/api/orders`);
+        if (!response.ok) return;
         const data = await response.json();
+        if (!Array.isArray(data)) return;
 
         const formattedOrders = data.map((order) => {
           // FIX: Backend ke 'items' ko read karne ke liye
@@ -176,7 +178,7 @@ export default function Orders() {
                 </td>
                 <td>{order.qty}</td>
                 <td className="money">
-                  ${order.amount.toFixed(2)}
+                  ${(order.amount || 0).toFixed(2)}
                 </td>
                 <td>{order.payment}</td>
                 <td>{order.date}</td>

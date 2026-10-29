@@ -44,7 +44,9 @@ export default function Dashboard() {
     const fetchDashboardData = async () => {
       try {
         const response = await fetch(`${API_BASE_URL}/api/orders`);
+        if (!response.ok) return;
         const data = await response.json();
+        if (!Array.isArray(data)) return;
 
         let revenue = 0;
         let pending = 0;
@@ -67,9 +69,9 @@ export default function Dashboard() {
           const orderDate = order.createdAt || order.date;
 
           return {
-            id: order._id.slice(-6).toUpperCase(),
+            id: (order._id || "").slice(-6).toUpperCase(),
             customer: order.customerName || "Guest",
-            email: email,
+            email: order.customerEmail || "N/A",
             product: productNames,
             amount: order.totalAmount || 0,
             date: orderDate ? new Date(orderDate).toLocaleDateString("en-GB") : "N/A",

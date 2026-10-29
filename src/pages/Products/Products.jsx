@@ -48,29 +48,23 @@ export default function Products() {
   // 3. Naya Product Save (POST) ya Edit (PUT) karna
   const save = async (item) => {
     try {
-      if (item.id) {
-        // Agar pehle se ID hai toh UPDATE (Edit) karega (Is API route ko hum backend mein add karenge)
-        const response = await fetch(`${API_BASE_URL}/api/products/${item.id}`, {
+      const targetId = item.id || item._id;
+      if (targetId) {
+        // Agar pehle se ID hai toh UPDATE (Edit) karega
+        await fetch(`${API_BASE_URL}/api/products/${targetId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(item),
         });
-        const updatedItem = await response.json();
-        updatedItem.id = updatedItem._id;
-        
-        setProducts(products.map((product) => product.id === item.id ? updatedItem : product));
       } else {
         // Naya product hai toh CREATE (POST) karega
-        const response = await fetch(`${API_BASE_URL}/api/products`, {
+        await fetch(`${API_BASE_URL}/api/products`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(item),
         });
-        const newItem = await response.json();
-        newItem.id = newItem._id;
-        
-        setProducts([...products, newItem]);
       }
+      await fetchProducts();
     } catch (error) {
       console.error("Save karne mein error:", error);
     }
@@ -84,8 +78,7 @@ export default function Products() {
         await fetch(`${API_BASE_URL}/api/products/${id}`, {
           method: "DELETE",
         });
-        // Frontend se bhi hata dein
-        setProducts(products.filter((product) => product.id !== id));
+        await fetchProducts();
       } catch (error) {
         console.error("Delete karne mein error:", error);
       }
