@@ -9,8 +9,12 @@ const fallbackImages = {
   Home: "/products/desk-lamp.svg",
 };
 
-function getFallbackImage(name, category) {
-  const productName = name.toLowerCase();
+function getFallbackImage(name = "", category = "") {
+  const productName = String(name || "").toLowerCase();
+
+  if (productName.includes("cloth") || productName.includes("shirt") || productName.includes("t-shirt") || productName.includes("jean")) {
+    return "/products/cloth1.png";
+  }
 
   if (productName.includes("headphone")) {
     return "/products/headphones.svg";
@@ -39,9 +43,33 @@ function getFallbackImage(name, category) {
   return fallbackImages[category] || "/products/default-product.svg";
 }
 
+function getImageSrc(src) {
+  const imagePath = typeof src === "string" ? src.trim() : "";
+
+  if (!imagePath) {
+    return "";
+  }
+
+  if (
+    imagePath.startsWith("/") ||
+    imagePath.startsWith("data:") ||
+    imagePath.startsWith("blob:") ||
+    /^[a-z][a-z\d+.-]*:/i.test(imagePath)
+  ) {
+    return imagePath;
+  }
+
+  if (imagePath.startsWith("cloth")) {
+    const filename = imagePath.endsWith(".png") ? imagePath : `${imagePath}.png`;
+    return `/products/${filename}`;
+  }
+
+  return `/products/${imagePath}`;
+}
+
 export default function ProductImage({ name, category, src }) {
   const fallbackImage = getFallbackImage(name, category);
-  const imageSrc = typeof src === "string" && src.trim() ? src : fallbackImage;
+  const imageSrc = getImageSrc(src) || fallbackImage;
 
   return (
     <img

@@ -5,13 +5,25 @@ import ProductImage from "../ProductImage/ProductImage";
 import "./ProductCard.css";
 
 export default function ProductCard({ product, onEdit, onDelete }) {
+  const productImageSrc =
+    typeof product.image === "string" && product.image.trim()
+      ? product.image.startsWith("/") ||
+        product.image.startsWith("data:") ||
+        product.image.startsWith("blob:") ||
+        /^[a-z][a-z\d+.-]*:/i.test(product.image)
+        ? product.image
+        : product.image.startsWith("cloth")
+        ? `/products/${product.image.endsWith(".png") ? product.image : product.image + ".png"}`
+        : `/products/${product.image}`
+      : "";
+
   return (
     <article className="product-card">
       <div className="product-card__visual">
         <ProductImage
           name={product.name}
           category={product.category}
-          src={product.image}
+          src={productImageSrc}
         />
         <em>{product.stock} in stock</em>
       </div>
@@ -22,8 +34,8 @@ export default function ProductCard({ product, onEdit, onDelete }) {
         <p>{product.description}</p>
 
         <div className="product-card__meta">
-          <strong>${Number(product.price).toFixed(2)}</strong>
-          <span>{product.sold} sold</span>
+          <strong>${Number(product.price || 0).toFixed(2)}</strong>
+          <span>{product.sold || 0} sold</span>
         </div>
 
         <div className="product-card__actions">

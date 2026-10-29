@@ -17,6 +17,18 @@ export default function ProductForm({ product, onCancel, onSave }) {
   const [form, setForm] = useState(blank);
   const [imageError, setImageError] = useState("");
 
+  const previewImageSrc =
+    typeof form.image === "string" && form.image.trim()
+      ? form.image.startsWith("/") ||
+        form.image.startsWith("data:") ||
+        form.image.startsWith("blob:") ||
+        /^[a-z][a-z\d+.-]*:/i.test(form.image)
+        ? form.image
+        : form.image.startsWith("cloth")
+        ? `/products/${form.image.endsWith(".png") ? form.image : form.image + ".png"}`
+        : `/products/${form.image}`
+      : "";
+
   useEffect(() => {
     setForm(product ? { ...product } : blank);
     setImageError("");
@@ -142,7 +154,7 @@ export default function ProductForm({ product, onCancel, onSave }) {
           <ProductImage
             name={form.name || "Product preview"}
             category={form.category}
-            src={form.image}
+            src={previewImageSrc}
           />
           <div>
             <strong>Image preview</strong>
